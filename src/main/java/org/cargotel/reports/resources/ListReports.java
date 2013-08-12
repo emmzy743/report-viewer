@@ -31,13 +31,17 @@ public class ListReports extends ServerResource {
 			});
 
             
-			StringBuilder builder = new StringBuilder("<html><body>");
+			StringBuilder builder = new StringBuilder("<html><body><center>");
+			builder.append("<table border='1'><tr><th bgcolor='#CCCCCC'>Report Name</th></tr>");
 			for (File rep : reports) {
+				builder.append("<tr><td>");
 				builder.append("<a href='").append("../run?__report=WEB-INF/classes/yms/");
 				builder.append(rep.getName()).append("'>");
-				builder.append(rep.getName()).append("</a><br/>");
+				builder.append(rep.getName()).append("</a>");
+				builder.append("</td><tr>");
 			}
-			builder.append("</body></html>");
+			builder.append("</table>");
+			builder.append("</center></body></html>");
 			response.setEntity(builder.toString(),MediaType.TEXT_HTML);
 			return response;
 		} catch (URISyntaxException e) {

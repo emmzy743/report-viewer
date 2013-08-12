@@ -160,18 +160,15 @@
                     <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select task_id,
-	CASE task_id
-		WHEN 'outgate-rail' THEN 'Rail'
-		WHEN 'outgate-vessel' THEN 'Vessel'
-		WHEN 'outgate-truck' THEN 'Truck'
-	END as task_name,
-	count(vehicle_id)
-from yms_vehiclestatuslog
-where status = 'complete'
-and task_id like 'outgate-%'
-and complete_timestamp between ? and ?
-group by task_id]]></xml-property>
+            <xml-property name="queryText"><![CDATA[select t.task_id, t.name as task_name, count(vehicle_id)
+from yms_vehiclestatuslog as vsl
+join yms_task as t
+on vsl.current_task_id = t.id
+where vsl.status = 'complete'
+and t.task_id like 'out-%'
+and vsl.complete_timestamp between ? and ?
+group by t.task_id, t.name
+order by task_id]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>

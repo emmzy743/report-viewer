@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <data-sets>
+        <joint-data-set name="Vehicle Status Log Join Logged Time" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                    <property name="alias">dwell_time</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::dwell_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::status</property>
+                    <property name="alias">status</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_late</property>
+                    <property name="alias">task_late</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_late</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                    <property name="alias">workgroup</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::workgroup</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <property name="alias">task_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                    <property name="alias">create_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::create_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                    <property name="alias">assign_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assign_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::current_location</property>
+                    <property name="alias">current_location</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::current_location</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                    <property name="alias">vehicle_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::vehicle_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_group</property>
+                    <property name="alias">task_group</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_group</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::section</property>
+                    <property name="alias">section</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::section</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::id</property>
+                    <property name="alias">id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                    <property name="alias">consignment_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::consignment_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                    <property name="alias">process_instance_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::process_instance_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                    <property name="alias">task_due_date</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_due_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                    <property name="alias">assignee_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assignee_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::bay</property>
+                    <property name="alias">bay</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::bay</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Hours::user_id</property>
+                    <property name="alias">user_id</property>
+                    <text-property name="displayName">User Logged Time in Hours::user_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Hours::duration_hours</property>
+                    <property name="alias">duration_hours</property>
+                    <text-property name="displayName">User Logged Time in Hours::duration_hours</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                    <property name="alias">complete_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::complete_timestamp</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">BirtDateTime.addDay(BirtDateTime.today(), -30)</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue">BirtDateTime.now()</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Hours::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Hours::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">4</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::current_location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::bay</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::section</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_late</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_group</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">User Logged Time in Hours::user_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">User Logged Time in Hours::duration_hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Vehicle Status Log for Arrival Tasks</value>
+                <value>User Logged Time in Hours</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Vehicle Status Log for Arrival Tasks</property>
+                    <property name="rightDataSet">User Logged Time in Hours</property>
+                    <expression name="leftExpression">dataSetRow["assignee_id"]</expression>
+                    <expression name="rightExpression">dataSetRow["user_id"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+    </data-sets>
+    <themes>
+        <theme name="defaultTheme" id="4"/>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+</library>

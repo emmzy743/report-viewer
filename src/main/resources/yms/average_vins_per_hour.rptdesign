@@ -1,0 +1,2529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">92</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">92</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">92</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">789</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">789</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">789</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">93</property>
+    <parameters>
+        <parameter-group name="Report Dates" id="29">
+            <parameters>
+                <scalar-parameter name="Date From" id="27">
+                    <property name="valueType">static</property>
+                    <property name="isRequired">true</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="javascript">BirtDateTime.addDay(BirtDateTime.today(), -30)</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="concealValue">false</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Long Date</property>
+                        <property name="pattern">Long Date</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="Date To" id="28">
+                    <property name="valueType">static</property>
+                    <property name="isRequired">true</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="javascript">BirtDateTime.now()</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="concealValue">false</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Long Date</property>
+                        <property name="pattern">Long Date</property>
+                    </structure>
+                </scalar-parameter>
+            </parameters>
+        </parameter-group>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Django DB" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://ec2-107-22-165-15.compute-1.amazonaws.com:5432/dfmeebecrj62o?username=dmewrimdgobhnm&amp;password=A9gbWQ3AcnZjkcO0wFxMukHeD5&amp;ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</property>
+            <property name="odaUser">dmewrimdgobhnm</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">QTlnYldRM0Fjblpqa2NPMHdGeE11a0hlRDU=</encrypted-property>
+            <property name="OdaConnProfileName">Django DB</property>
+            <property name="OdaConnProfileStorePath">djangodb</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Vehicle Status Log for Arrival Tasks" id="92">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">current_location</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">current_location</text-property>
+                    <text-property name="heading">current_location</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">status</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">assignee_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">assignee_id</text-property>
+                    <text-property name="heading">assignee_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">process_instance_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">process_instance_id</text-property>
+                    <text-property name="heading">process_instance_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vehicle_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">vehicle_id</text-property>
+                    <text-property name="heading">vehicle_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">consignment_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">consignment_id</text-property>
+                    <text-property name="heading">consignment_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">task_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">task_id</text-property>
+                    <text-property name="heading">task_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">bay</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">bay</text-property>
+                    <text-property name="heading">bay</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">section</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">section</text-property>
+                    <text-property name="heading">section</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">create_timestamp</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">create_timestamp</text-property>
+                    <text-property name="heading">create_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">assign_timestamp</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">assign_timestamp</text-property>
+                    <text-property name="heading">assign_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">complete_timestamp</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">complete_timestamp</text-property>
+                    <text-property name="heading">complete_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">task_due_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">task_due_date</text-property>
+                    <text-property name="heading">task_due_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">task_late</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">task_late</text-property>
+                    <text-property name="heading">task_late</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dwell_time</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dwell_time</text-property>
+                    <text-property name="heading">dwell_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">workgroup</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">workgroup</text-property>
+                    <text-property name="heading">workgroup</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">task_group</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">task_group</text-property>
+                    <text-property name="heading">task_group</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">BirtDateTime.addDay(BirtDateTime.today(), -30)</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">BirtDateTime.now()</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">current_location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">assignee_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">process_instance_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">vehicle_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">consignment_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">task_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">bay</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">section</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">create_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">assign_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">complete_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">task_due_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">task_late</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">dwell_time</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">workgroup</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">task_group</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">current_location</property>
+                    <property name="nativeName">current_location</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">status</property>
+                    <property name="nativeName">status</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">assignee_id</property>
+                    <property name="nativeName">assignee_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">process_instance_id</property>
+                    <property name="nativeName">process_instance_id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">vehicle_id</property>
+                    <property name="nativeName">vehicle_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">consignment_id</property>
+                    <property name="nativeName">consignment_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">task_id</property>
+                    <property name="nativeName">task_id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">bay</property>
+                    <property name="nativeName">bay</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">section</property>
+                    <property name="nativeName">section</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">create_timestamp</property>
+                    <property name="nativeName">create_timestamp</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">assign_timestamp</property>
+                    <property name="nativeName">assign_timestamp</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">complete_timestamp</property>
+                    <property name="nativeName">complete_timestamp</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">task_due_date</property>
+                    <property name="nativeName">task_due_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">task_late</property>
+                    <property name="nativeName">task_late</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">dwell_time</property>
+                    <property name="nativeName">dwell_time</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">workgroup</property>
+                    <property name="nativeName">workgroup</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">task_group</property>
+                    <property name="nativeName">task_group</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select l.*
+from yms_vehiclestatuslog as l
+where l.status = 'complete'
+and l.task_id like 'arrival-%'
+and l.complete_timestamp between ? and ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>task_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>task_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>task_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>task_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>task_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>task_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>vehicle_id</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>vehicle_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>vehicle_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>assignee_id</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>assignee_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>assignee_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="User Logged Time in Days" id="93">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">sum_days</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["duration_days"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">user_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">user_id</text-property>
+                    <text-property name="heading">user_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">day_out</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">day_out</text-property>
+                    <text-property name="heading">day_out</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">day_in</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">day_in</text-property>
+                    <text-property name="heading">day_in</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">duration_days</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">duration_days</text-property>
+                    <text-property name="heading">duration_days</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">user_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">day_out</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">day_in</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">duration_days</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">sum_days</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">user_id</property>
+                    <property name="nativeName">user_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">day_out</property>
+                    <property name="nativeName">day_out</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">day_in</property>
+                    <property name="nativeName">day_in</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">duration_days</property>
+                    <property name="nativeName">duration_days</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 	user_id,
+	date_trunc('day',clock_out) as day_out,
+	date_trunc('day',clock_in) as day_in,
+	sum(extract (day from date_trunc('day',clock_out) - date_trunc('day',clock_in)) + 1) as duration_days
+from yms_userring 
+where clock_out > clock_in
+and clock_in > ?
+and clock_out < ?
+group by user_id, day_out, day_in]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>duration</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>17</design:precision>
+            <design:scale>17</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>duration</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>duration</design:label>
+            <design:formattingHints>
+              <design:displaySize>25</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <joint-data-set name="Vehicle Status Log Join Logged Time" id="101">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                    <property name="alias">dwell_time</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::dwell_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::status</property>
+                    <property name="alias">status</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_late</property>
+                    <property name="alias">task_late</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_late</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                    <property name="alias">workgroup</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::workgroup</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <property name="alias">task_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                    <property name="alias">create_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::create_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                    <property name="alias">assign_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assign_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::current_location</property>
+                    <property name="alias">current_location</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::current_location</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                    <property name="alias">vehicle_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::vehicle_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_group</property>
+                    <property name="alias">task_group</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_group</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::section</property>
+                    <property name="alias">section</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::section</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::id</property>
+                    <property name="alias">id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                    <property name="alias">consignment_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::consignment_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                    <property name="alias">process_instance_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::process_instance_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                    <property name="alias">task_due_date</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_due_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                    <property name="alias">assignee_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assignee_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::bay</property>
+                    <property name="alias">bay</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::bay</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Hours::user_id</property>
+                    <property name="alias">user_id</property>
+                    <text-property name="displayName">User Logged Time in Hours::user_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Hours::duration_hours</property>
+                    <property name="alias">duration_hours</property>
+                    <text-property name="displayName">User Logged Time in Hours::duration_hours</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                    <property name="alias">complete_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::complete_timestamp</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">BirtDateTime.addDay(BirtDateTime.today(), -30)</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue">BirtDateTime.now()</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Hours::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Hours::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">4</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::current_location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::bay</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::section</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_late</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_group</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">User Logged Time in Hours::user_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">User Logged Time in Hours::duration_hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Vehicle Status Log for Arrival Tasks</value>
+                <value>User Logged Time in Hours</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Vehicle Status Log for Arrival Tasks</property>
+                    <property name="rightDataSet">User Logged Time in Hours</property>
+                    <expression name="leftExpression">dataSetRow["assignee_id"]</expression>
+                    <expression name="rightExpression">dataSetRow["user_id"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="User Logged Time in Hours" id="523">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">user_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">user_id</text-property>
+                    <text-property name="heading">user_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">duration_hours</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">duration_hours</text-property>
+                    <text-property name="heading">duration_hours</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">user_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">duration_hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">user_id</property>
+                    <property name="nativeName">user_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">duration_hours</property>
+                    <property name="nativeName">duration_hours</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select user_id,
+	sum(extract(epoch from clock_out - clock_in)/3600) as duration_hours
+from yms_userring
+where clock_out > clock_in
+and clock_in > ?
+and clock_out < ?
+group by user_id]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>duration</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>17</design:precision>
+            <design:scale>17</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>duration</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>duration</design:label>
+            <design:formattingHints>
+              <design:displaySize>25</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <joint-data-set name="Vehicle Status Log Join Logged Time Days" id="623">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                    <property name="alias">dwell_time</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::dwell_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::status</property>
+                    <property name="alias">status</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Days::duration_days</property>
+                    <property name="alias">duration_days</property>
+                    <text-property name="displayName">User Logged Time in Days::duration_days</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_late</property>
+                    <property name="alias">task_late</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_late</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Days::day_out</property>
+                    <property name="alias">day_out</property>
+                    <text-property name="displayName">User Logged Time in Days::day_out</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                    <property name="alias">workgroup</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::workgroup</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <property name="alias">task_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                    <property name="alias">create_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::create_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                    <property name="alias">assign_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assign_timestamp</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::current_location</property>
+                    <property name="alias">current_location</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::current_location</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                    <property name="alias">vehicle_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::vehicle_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Days::sum_days</property>
+                    <property name="alias">sum_days</property>
+                    <text-property name="displayName">User Logged Time in Days::sum_days</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_group</property>
+                    <property name="alias">task_group</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_group</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::section</property>
+                    <property name="alias">section</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::section</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::id</property>
+                    <property name="alias">id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                    <property name="alias">consignment_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::consignment_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                    <property name="alias">process_instance_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::process_instance_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                    <property name="alias">task_due_date</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::task_due_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                    <property name="alias">assignee_id</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::assignee_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::bay</property>
+                    <property name="alias">bay</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::bay</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Days::user_id</property>
+                    <property name="alias">user_id</property>
+                    <text-property name="displayName">User Logged Time in Days::user_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">User Logged Time in Days::day_in</property>
+                    <property name="alias">day_in</property>
+                    <text-property name="displayName">User Logged Time in Days::day_in</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                    <property name="alias">complete_timestamp</property>
+                    <text-property name="displayName">Vehicle Status Log for Arrival Tasks::complete_timestamp</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">0</property>
+                    <expression name="defaultValue">BirtDateTime.addDay(BirtDateTime.today(), -30)</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">BirtDateTime.now()</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Days::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Days::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::current_location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assignee_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::process_instance_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::consignment_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::bay</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::section</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::create_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::assign_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::complete_timestamp</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_due_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_late</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::dwell_time</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::workgroup</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Vehicle Status Log for Arrival Tasks::task_group</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">User Logged Time in Days::user_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">User Logged Time in Days::day_out</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">User Logged Time in Days::day_in</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">User Logged Time in Days::duration_days</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">User Logged Time in Days::sum_days</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Vehicle Status Log for Arrival Tasks</value>
+                <value>User Logged Time in Days</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Vehicle Status Log for Arrival Tasks</property>
+                    <property name="rightDataSet">User Logged Time in Days</property>
+                    <expression name="leftExpression">dataSetRow["assignee_id"]</expression>
+                    <expression name="rightExpression">dataSetRow["user_id"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Count Arrived VINs per Day" id="789">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">day</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">day</text-property>
+                    <text-property name="heading">day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">count_vin</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">count_vin</text-property>
+                    <text-property name="heading">count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">day</property>
+                    <property name="nativeName">day</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">count_vin</property>
+                    <property name="nativeName">count_vin</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 	date_trunc('day', complete_timestamp) as day,
+	count(vehicle_id) as count_vin
+from yms_vehiclestatuslog
+where status = 'complete'
+and task_id like 'arrival-%'
+and complete_timestamp between ? and ?
+group by day
+order by day]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Count Arrived VINs per Month" id="790">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">month</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">month</text-property>
+                    <text-property name="heading">month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">count_vin</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">count_vin</text-property>
+                    <text-property name="heading">count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">month</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">month</property>
+                    <property name="nativeName">month</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">count_vin</property>
+                    <property name="nativeName">count_vin</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 	date_trunc('month', complete_timestamp) as month,
+	count(vehicle_id) as count_vin
+from yms_vehiclestatuslog
+where status = 'complete'
+and task_id like 'arrival-%'
+and complete_timestamp between ? and ?
+group by month
+order by month]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Count Outgated VINs per Day" id="791">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">day</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">day</text-property>
+                    <text-property name="heading">day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">count_vin</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">count_vin</text-property>
+                    <text-property name="heading">count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">day</property>
+                    <property name="nativeName">day</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">count_vin</property>
+                    <property name="nativeName">count_vin</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 	date_trunc('day', complete_timestamp) as day,
+	count(vehicle_id) as count_vin
+from yms_vehiclestatuslog
+where status = 'complete'
+and task_id like 'outgate-%'
+and complete_timestamp between ? and ?
+group by day
+order by day]]></xml-property>
+        </oda-data-set>
+        <joint-data-set name="In Out per Day" id="792">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Day::count_vin</property>
+                    <property name="alias">Count Outgated VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::count_vin</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Day::day</property>
+                    <property name="alias">Count Outgated VINs per Day::day</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Day::day</property>
+                    <property name="alias">Count Arrived VINs per Day::day</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Day::count_vin</property>
+                    <property name="alias">Count Arrived VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">0</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Count Arrived VINs per Day::day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Count Arrived VINs per Day::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Count Outgated VINs per Day::day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Count Outgated VINs per Day::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Count Arrived VINs per Day</value>
+                <value>Count Outgated VINs per Day</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">full-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Count Arrived VINs per Day</property>
+                    <property name="rightDataSet">Count Outgated VINs per Day</property>
+                    <expression name="leftExpression">dataSetRow["day"]</expression>
+                    <expression name="rightExpression">dataSetRow["day"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Count Outgated VINs per Month" id="839">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">month</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">month</text-property>
+                    <text-property name="heading">month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">count_vin</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">count_vin</text-property>
+                    <text-property name="heading">count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Date From</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Date To</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">dateTime</property>
+                    <property name="nativeDataType">93</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">month</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Django DB</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">month</property>
+                    <property name="nativeName">month</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">count_vin</property>
+                    <property name="nativeName">count_vin</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 	date_trunc('month', complete_timestamp) as month,
+	count(vehicle_id) as count_vin
+from yms_vehiclestatuslog
+where status = 'complete'
+and task_id like 'outgate-%'
+and complete_timestamp between ? and ?
+group by month
+order by month]]></xml-property>
+        </oda-data-set>
+        <joint-data-set name="In Out per Month" id="840">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Month::month</property>
+                    <property name="alias">Count Outgated VINs per Month::month</property>
+                    <text-property name="displayName">Count Outgated VINs per Month::month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Month::month</property>
+                    <property name="alias">Count Arrived VINs per Month::month</property>
+                    <text-property name="displayName">Count Arrived VINs per Month::month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Month::count_vin</property>
+                    <property name="alias">Count Arrived VINs per Month::count_vin</property>
+                    <text-property name="displayName">Count Arrived VINs per Month::count_vin</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Month::count_vin</property>
+                    <property name="alias">Count Outgated VINs per Month::count_vin</property>
+                    <text-property name="displayName">Count Outgated VINs per Month::count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Count Arrived VINs per Month::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">0</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Arrived VINs per Month::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Month::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Month::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Count Arrived VINs per Month::month</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Count Arrived VINs per Month::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Count Outgated VINs per Month::month</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Count Outgated VINs per Month::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Count Arrived VINs per Month</value>
+                <value>Count Outgated VINs per Month</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">full-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Count Arrived VINs per Month</property>
+                    <property name="rightDataSet">Count Outgated VINs per Month</property>
+                    <expression name="leftExpression">dataSetRow["month"]</expression>
+                    <expression name="rightExpression">dataSetRow["month"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Productivity for Arrival Tasks" id="413">
+            <property name="dimensions">
+                <tabular-dimension name="Arrival Task" id="414">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="415">
+                            <property name="levels">
+                                <tabular-level name="Vehicle Status Log for Arrival Tasks::task_id" id="416">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_id</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="417">
+                    <property name="measures">
+                        <tabular-measure name="Vehicle Status Log for Arrival Tasks::vehicle_id" id="418">
+                            <property name="function">count</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Vehicle Status Log for Arrival Tasks::vehicle_id"]</expression>
+                            <property name="dataType">integer</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="User Logged Time in Hours::duration_hours" id="436">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["User Logged Time in Hours::duration_hours"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="Average per Hour" id="437">
+                            <property name="isCalculated">true</property>
+                            <expression name="measureExpression" type="javascript">measure["Vehicle Status Log for Arrival Tasks::vehicle_id"]/measure["User Logged Time in Hours::duration_hours"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Vehicle Status Log Join Logged Time</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="419">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">User Logged time, in Hours</text-property>
+        </label>
+        <table id="449">
+            <property name="dataSet">User Logged Time in Hours</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">user_id</property>
+                    <text-property name="displayName">user_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["user_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">duration_hours</property>
+                    <text-property name="displayName">duration_hours</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["duration_hours"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <column id="463"/>
+            <column id="464"/>
+            <header>
+                <row id="450">
+                    <cell id="451">
+                        <label id="452">
+                            <text-property name="text">user_id</text-property>
+                        </label>
+                    </cell>
+                    <cell id="453">
+                        <label id="552">
+                            <text-property name="text">duration_hours</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="455">
+                    <cell id="456">
+                        <data id="457">
+                            <property name="resultSetColumn">user_id</property>
+                        </data>
+                    </cell>
+                    <cell id="458">
+                        <data id="553">
+                            <property name="resultSetColumn">duration_hours</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="460">
+                    <cell id="461"/>
+                    <cell id="462"/>
+                </row>
+            </footer>
+        </table>
+        <label id="465">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">LOG - join - Hours</text-property>
+        </label>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="500">
+            <property name="cube">Productivity for Arrival Tasks</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="507">
+                    <property name="measure">Vehicle Status Log for Arrival Tasks::vehicle_id</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="508">
+                            <property name="aggregationOnRow">Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                            <property name="content">
+                                <data id="509">
+                                    <property name="resultSetColumn">Vehicle Status Log for Arrival Tasks::vehicle_id_Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="510">
+                            <property name="content">
+                                <label id="511">
+                                    <text-property name="text">Vehicle Status Log for Arrival Tasks::vehicle_id</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="517">
+                    <property name="measure">Average per Hour</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="518">
+                            <property name="aggregationOnRow">Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                            <property name="content">
+                                <data id="519">
+                                    <property name="resultSetColumn">Average per Hour_Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="520">
+                            <property name="content">
+                                <label id="521">
+                                    <text-property name="text">Average per Hour</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="502">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="503">
+                            <property name="dimension">Arrival Task</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="504">
+                                    <property name="level">Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="505">
+                                            <property name="content">
+                                                <data name="Vehicle Status Log for Arrival Tasks::task_id" id="506">
+                                                    <property name="resultSetColumn">Vehicle Status Log for Arrival Tasks::task_id</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="501">
+                    <property name="content">
+                        <label id="522">
+                            <text-property name="text">Vehicle Status Log for Arrival Tasks::task_id</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <expression name="expression">dimension["Arrival Task"]["Vehicle Status Log for Arrival Tasks::task_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Vehicle Status Log for Arrival Tasks::vehicle_id_Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <expression name="expression">measure["Vehicle Status Log for Arrival Tasks::vehicle_id"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">User Logged Time in Hours::duration_hours_Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <expression name="expression">measure["User Logged Time in Hours::duration_hours"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">Average per Hour_Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</property>
+                    <expression name="expression">measure["Average per Hour"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Arrival Task/Vehicle Status Log for Arrival Tasks::task_id</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <label id="588">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">Logged time, Days</text-property>
+        </label>
+        <table id="589">
+            <property name="dataSet">User Logged Time in Days</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">user_id</property>
+                    <text-property name="displayName">user_id</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["user_id"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">day_out</property>
+                    <text-property name="displayName">day_out</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["day_out"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">day_in</property>
+                    <text-property name="displayName">day_in</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["day_in"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">duration_days</property>
+                    <text-property name="displayName">duration_days</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["duration_days"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">sum_days</property>
+                    <text-property name="displayName">sum_days</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sum_days"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <column id="618"/>
+            <column id="619"/>
+            <column id="620"/>
+            <column id="621"/>
+            <column id="622"/>
+            <header>
+                <row id="590">
+                    <cell id="591">
+                        <label id="592">
+                            <text-property name="text">user_id</text-property>
+                        </label>
+                    </cell>
+                    <cell id="593">
+                        <label id="594">
+                            <text-property name="text">day_out</text-property>
+                        </label>
+                    </cell>
+                    <cell id="595">
+                        <label id="596">
+                            <text-property name="text">day_in</text-property>
+                        </label>
+                    </cell>
+                    <cell id="597">
+                        <label id="598">
+                            <text-property name="text">duration_days</text-property>
+                        </label>
+                    </cell>
+                    <cell id="599">
+                        <label id="600">
+                            <text-property name="text">sum_days</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="601">
+                    <cell id="602">
+                        <data id="603">
+                            <property name="resultSetColumn">user_id</property>
+                        </data>
+                    </cell>
+                    <cell id="604">
+                        <data id="605">
+                            <property name="resultSetColumn">day_out</property>
+                        </data>
+                    </cell>
+                    <cell id="606">
+                        <data id="607">
+                            <property name="resultSetColumn">day_in</property>
+                        </data>
+                    </cell>
+                    <cell id="608">
+                        <data id="609">
+                            <property name="resultSetColumn">duration_days</property>
+                        </data>
+                    </cell>
+                    <cell id="610">
+                        <data id="611">
+                            <property name="resultSetColumn">sum_days</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="612">
+                    <cell id="613"/>
+                    <cell id="614"/>
+                    <cell id="615"/>
+                    <cell id="616"/>
+                    <cell id="617"/>
+                </row>
+            </footer>
+        </table>
+        <label id="624">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">In/Out per Day</text-property>
+        </label>
+        <table id="793">
+            <property name="dataSet">In Out per Day</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::day</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::day</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Count Arrived VINs per Day::day"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::count_vin</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Count Arrived VINs per Day::count_vin"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::day</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::day</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Count Outgated VINs per Day::day"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::count_vin</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Count Outgated VINs per Day::count_vin"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="817"/>
+            <column id="818"/>
+            <column id="819"/>
+            <column id="820"/>
+            <header>
+                <row id="794">
+                    <cell id="795">
+                        <label id="796">
+                            <text-property name="text">Count Arrived VINs per Day::day</text-property>
+                        </label>
+                    </cell>
+                    <cell id="797">
+                        <label id="798">
+                            <text-property name="text">Count Arrived VINs per Day::count_vin</text-property>
+                        </label>
+                    </cell>
+                    <cell id="799">
+                        <label id="800">
+                            <text-property name="text">Count Outgated VINs per Day::day</text-property>
+                        </label>
+                    </cell>
+                    <cell id="801">
+                        <label id="802">
+                            <text-property name="text">Count Outgated VINs per Day::count_vin</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="803">
+                    <cell id="804">
+                        <data id="805">
+                            <property name="resultSetColumn">Count Arrived VINs per Day::day</property>
+                        </data>
+                    </cell>
+                    <cell id="806">
+                        <data id="807">
+                            <property name="resultSetColumn">Count Arrived VINs per Day::count_vin</property>
+                        </data>
+                    </cell>
+                    <cell id="808">
+                        <data id="809">
+                            <property name="resultSetColumn">Count Outgated VINs per Day::day</property>
+                        </data>
+                    </cell>
+                    <cell id="810">
+                        <data id="811">
+                            <property name="resultSetColumn">Count Outgated VINs per Day::count_vin</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="812">
+                    <cell id="813"/>
+                    <cell id="814"/>
+                    <cell id="815"/>
+                    <cell id="816"/>
+                </row>
+            </footer>
+        </table>
+        <label id="822">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">In/Out per Month</text-property>
+        </label>
+        <table id="823">
+            <property name="dataSet">Count Arrived VINs per Month</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">month</property>
+                    <text-property name="displayName">month</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["month"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">count_vin</property>
+                    <text-property name="displayName">count_vin</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["count_vin"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="837"/>
+            <column id="838"/>
+            <header>
+                <row id="824">
+                    <cell id="825">
+                        <label id="826">
+                            <text-property name="text">month</text-property>
+                        </label>
+                    </cell>
+                    <cell id="827">
+                        <label id="828">
+                            <text-property name="text">count_vin</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="829">
+                    <cell id="830">
+                        <data id="831">
+                            <property name="resultSetColumn">month</property>
+                        </data>
+                    </cell>
+                    <cell id="832">
+                        <data id="833">
+                            <property name="resultSetColumn">count_vin</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="834">
+                    <cell id="835"/>
+                    <cell id="836"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

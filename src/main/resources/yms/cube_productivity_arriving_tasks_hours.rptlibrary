@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <cubes>
+        <tabular-cube name="Productivity for Arrival Tasks" id="5">
+            <property name="dimensions">
+                <tabular-dimension name="Arrival Task" id="6">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="7">
+                            <property name="levels">
+                                <tabular-level name="Vehicle Status Log for Arrival Tasks::task_id" id="8">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Vehicle Status Log for Arrival Tasks::task_id</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="9">
+                    <property name="measures">
+                        <tabular-measure name="Vehicle Status Log for Arrival Tasks::vehicle_id" id="10">
+                            <property name="function">count</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Vehicle Status Log for Arrival Tasks::vehicle_id"]</expression>
+                            <property name="dataType">integer</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="User Logged Time in Hours::duration_hours" id="11">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["User Logged Time in Hours::duration_hours"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="Average per Hour" id="12">
+                            <property name="isCalculated">true</property>
+                            <expression name="measureExpression" type="javascript">measure["Vehicle Status Log for Arrival Tasks::vehicle_id"]/measure["User Logged Time in Hours::duration_hours"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Vehicle Status Log Join Logged Time</property>
+        </tabular-cube>
+    </cubes>
+    <themes>
+        <theme name="defaultTheme" id="4"/>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+</library>

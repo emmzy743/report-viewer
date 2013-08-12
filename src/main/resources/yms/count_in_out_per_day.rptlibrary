@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <data-sets>
+        <joint-data-set name="In Out per Day" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Day::count_vin</property>
+                    <property name="alias">Count Outgated VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::count_vin</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Outgated VINs per Day::day</property>
+                    <property name="alias">Count Outgated VINs per Day::day</property>
+                    <text-property name="displayName">Count Outgated VINs per Day::day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Day::day</property>
+                    <property name="alias">Count Arrived VINs per Day::day</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::day</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Count Arrived VINs per Day::count_vin</property>
+                    <property name="alias">Count Arrived VINs per Day::count_vin</property>
+                    <text-property name="displayName">Count Arrived VINs per Day::count_vin</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">0</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Arrived VINs per Day::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::param_1</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Count Outgated VINs per Day::param_2</property>
+                    <property name="dataType">dateTime</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Count Arrived VINs per Day::day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Count Arrived VINs per Day::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Count Outgated VINs per Day::day</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Count Outgated VINs per Day::count_vin</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Count Arrived VINs per Day</value>
+                <value>Count Outgated VINs per Day</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">full-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Count Arrived VINs per Day</property>
+                    <property name="rightDataSet">Count Outgated VINs per Day</property>
+                    <expression name="leftExpression">dataSetRow["day"]</expression>
+                    <expression name="rightExpression">dataSetRow["day"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+    </data-sets>
+    <themes>
+        <theme name="defaultTheme" id="4"/>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+</library>
